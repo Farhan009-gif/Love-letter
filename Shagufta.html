@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Shagufta - PIXEL LOVE STAGE</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--orange:#ffb347;--glow:#ff9d2e;--red:#ff2e4d;--green:#7bff62;--cream:#ffe6b3}
+body{background:radial-gradient(ellipse at 50% 30%,#2a0f0a 0%,#0a0506 60%,#000 100%);color:var(--cream);font-family:'Press Start 2P',monospace;min-height:100vh;display:flex;justify-content:center;padding:20px;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 2px,transparent 2px 4px);z-index:50;opacity:.6}
+.corner{position:fixed;width:32px;height:32px;border:3px solid var(--orange);z-index:60}
+.c-tl{top:12px;left:12px;border-right:0;border-bottom:0}.c-tr{top:12px;right:12px;border-left:0;border-bottom:0}.c-bl{bottom:12px;left:12px;border-right:0;border-top:0}.c-br{bottom:12px;right:12px;border-left:0;border-top:0}
+.wrap{max-width:520px;width:100%;text-align:center;position:relative;z-index:2}
+.badge{display:inline-block;border:2px solid var(--orange);color:var(--orange);font-size:10px;padding:8px 14px;margin:30px 0 18px;background:rgba(255,157,46,.08)}
+.badge.pink{border-color:var(--red);color:#ff8fa0;background:rgba(255,46,77,.08);margin-top:0}
+h1.title{font-size:clamp(38px,11vw,68px);line-height:1.15;color:var(--orange);text-shadow:0 0 8px var(--glow),0 0 25px var(--glow),0 0 60px #ff5500,4px 4px 0 #7a2a00;animation:titleFloat 3s ease-in-out infinite}
+h1.title span{display:block;font-size:clamp(18px,5vw,26px);color:#ff8fa0;text-shadow:0 0 12px #ff2e4d,3px 3px 0 #000;margin-top:10px}
+@keyframes titleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.screen{position:relative;margin:22px 0 10px;background:#000;border:4px solid #1a1a1a;border-radius:12px;overflow:hidden;box-shadow:0 0 0 2px var(--orange),0 0 30px rgba(255,157,46,.4);min-height:340px}
+.scene{position:absolute;inset:0;background:linear-gradient(180deg,#ffdf6b 0%,#ff9d4d 28%,#d95a3b 55%,#5a2a3a 100%)}
+.sun{position:absolute;top:18%;left:50%;transform:translateX(-50%);width:72px;height:72px;background:#fff6c8;box-shadow:0 0 30px #fff,0 0 60px var(--glow);animation:sunPulse 2.5s infinite}
+@keyframes sunPulse{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.08)}}
+.trees{position:absolute;top:38%;width:100%;display:flex;justify-content:space-around}
+.tree{width:70px;height:28px;background:#a83a4a;box-shadow:0 -12px 0 #a83a4a,-14px 12px 0 #3a0f0f,14px 12px 0 #3a0f0f;animation:treeSway 4s ease-in-out infinite}
+@keyframes treeSway{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+.ground{position:absolute;bottom:0;width:100%;height:38%;background:linear-gradient(180deg,#5fbf3f 0%,#2f7a22 100%)}
+.slides{position:relative;z-index:5;padding:38px 22px 70px;min-height:340px;display:flex}
+.slide{display:none;width:100%;animation:slideIn .5s steps(8)}
+.slide.active{display:block}
+@keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+.lyric{font-size:20px;line-height:1.7;text-shadow:3px 3px 0 #000,0 0 18px var(--glow);animation:flyOut 3s ease-in-out infinite}
+.lyric.small{font-size:11px;line-height:2}.lyric.big{font-size:28px;color:var(--orange)}
+.lyric.pink{color:#ff8fa0}
+@keyframes flyOut{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.level-tag{display:inline-block;background:#000;color:var(--green);border:2px solid var(--green);font-size:9px;padding:6px 10px;margin-bottom:16px}
+.level-tag.red{color:#ff6b81;border-color:var(--red)}
+.heart-big{font-size:42px;animation:beat .8s infinite;display:inline-block}
+@keyframes beat{0%,100%{transform:scale(1)}25%{transform:scale(1.25)}60%{transform:scale(1.2)}}
+.cube{position:absolute;right:-10px;bottom:30px;width:70px;height:70px;background:linear-gradient(180deg,#7bff62 0 28%,#8a5a32 28% 100%);border:3px solid #000;animation:cubeBob 2.5s ease-in-out infinite;z-index:6}
+@keyframes cubeBob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-12px) rotate(4deg)}}
+.progress{position:absolute;bottom:42px;left:20px;right:20px;height:8px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.3);z-index:6}
+.bar{height:100%;background:var(--orange);transition:width .4s steps(6)}
+.counter{position:absolute;bottom:16px;left:20px;right:20px;display:flex;justify-content:space-between;font-size:9px;color:#fff;text-shadow:2px 2px 0 #000;z-index:6}
+.tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0}
+.tag{border:2px solid var(--orange);color:var(--orange);font-size:8px;padding:8px 10px;background:rgba(0,0,0,.5)}
+.nav{display:flex;gap:10px;justify-content:center;margin:12px 0}
+.btn{background:var(--orange);border:0;border-bottom:5px solid #8a3c00;font-family:inherit;font-size:11px;padding:14px 18px;box-shadow:4px 4px 0 #000;cursor:pointer}
+.btn:active{transform:translateY(2px)}
+.btn.ghost{background:transparent;color:var(--orange);border:2px solid var(--orange);border-bottom-width:5px}
+.btn.love{background:var(--red);color:#fff;border-bottom-color:#7a0013}
+.dot{width:14px;height:14px;background:#333;border:2px solid var(--orange);cursor:pointer;padding:0}
+.dot.on{background:var(--orange)}
+.floating{position:fixed;pointer-events:none;z-index:1;animation:floatUp linear forwards}
+@keyframes floatUp{from{transform:translateY(20vh);opacity:1}to{transform:translateY(-110vh);opacity:0}}
+.confetti{position:fixed;top:-12px;width:10px;height:10px;z-index:99;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.hint{font-size:8px;color:#ff9d9d;margin-top:10px;line-height:1.8}
+.footer{margin:18px 0 40px;font-size:8px;color:#aaa;line-height:2}
+</style>
+</head>
+<body>
+<div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+<div class="wrap">
+<div class="badge">PLAYER 1 LOVE QUEST</div><br>
+<div class="badge pink">FOR SHAGUFTA</div>
+<h1 class="title">PIXEL<br>LOVE<br>STAGE<span>SHAGUFTA</span></h1>
+<div class="screen">
+<div class="scene"><div class="sun"></div><div class="trees"><div class="tree"></div><div class="tree"></div><div class="tree"></div></div><div class="ground"></div></div>
+<div class="cube"></div>
+<div class="slides" id="slides">
+<div class="slide active"><div class="level-tag">PRESS START</div><div class="lyric big">HEY, SHAGUFTA!</div><br><div class="lyric small">A LOVE LETTER<br>IN 5 LEVELS<br><br>FOR THE RAREST<br>PLAYER IN MY WORLD</div><div style="margin-top:14px"><span class="heart-big">&#10084;&#65039;</span></div></div>
+<div class="slide"><div class="level-tag">LEVEL 1 - SPAWN POINT</div><div class="lyric">SHAGUFTA,<br>YOU SPAWNED IN</div><br><div class="lyric small">MY WORLD WAS<br>EMPTY BLOCKS + DARK CAVES.<br><br>THEN YOU LOGGED IN<br>AND EVERYTHING GLOWED.</div></div>
+<div class="slide"><div class="level-tag">LEVEL 2 - SUNRISE BIOME</div><div class="lyric">YOU ARE MY<br>SUNRISE</div><br><div class="lyric small">YOUR SMILE = HEALTH POTION.<br>YOUR LAUGH = CHIPTUNE MUSIC.<br><br>EVEN CREEPERS SMILE<br>WHEN SHAGUFTA PASSES BY.</div></div>
+<div class="slide"><div class="level-tag">LEVEL 3 - CO-OP MODE</div><div class="lyric">SIDE BY SIDE<br>WE WIN</div><br><div class="lyric small">LATE-NIGHT TALKS,<br>STUPID JOKES, 3AM SNACK QUESTS.<br><br>NO BOSS IS TOO BIG<br>WHEN SHAGUFTA HOLDS MY HAND.</div></div>
+<div class="slide"><div class="level-tag">LEVEL 4 - SECRET CHEST</div><div class="lyric">LITTLE PIXELS<br>BIG FOREVER</div><br><div class="lyric small">I SAVED EVERY MEMORY<br>LIKE DIAMONDS:<br>YOUR VOICE, YOUR CARE,<br>YOUR MAGIC, SHAGUFTA.</div></div>
+<div class="slide"><div class="level-tag red">FINAL BOSS: CONFESSION</div><div class="lyric big" style="font-size:22px">I LOVE YOU<br><span class="lyric pink" style="font-size:22px">SHAGUFTA</span></div><br><div class="lyric small">NO CHEAT CODE. NO RESPAWN.<br>JUST TRUTH:<br><br>I CHOOSE YOU IN EVERY<br>LIFETIME, EVERY UNIVERSE,<br>EVERY GAME.<br><br>SHAGUFTA, WILL YOU BE MINE?</div><div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn love" onclick="sayYes()">[ YES! ]</button><button class="btn ghost" id="noBtn" onmouseover="dodge()" onclick="dodge()">[ hmm... ]</button></div><div class="hint">psst: the hmm button runs away. try to catch it.</div></div>
+<div class="slide"><div class="level-tag red">QUEST COMPLETE</div><div class="heart-big">&#128149;</div><br><br><div class="lyric">SHAGUFTA + ME<br>= PLAYER 2<br>FOREVER</div><br><div class="lyric small">YOU SAID YES!<br>NEW WORLD UNLOCKED.<br><br>FOREVER YOURS,<br>- YOUR PLAYER 1</div><div style="margin-top:14px"><button class="btn" onclick="goTo(0)">[ REPLAY LOVE ]</button></div></div>
+</div>
+<div class="progress"><div class="bar" id="bar" style="width:14%"></div></div>
+<div class="counter"><span id="count">LVL 0 / 6</span><span>REC</span></div>
+</div>
+<div class="tags"><div class="tag">FOR SHAGUFTA</div><div class="tag">CHIPTUNE HEART</div><div class="tag">RUNS IN BROWSER</div></div>
+<div class="nav"><button class="btn ghost" onclick="move(-1)">[ PREV ]</button><button class="btn" onclick="move(1)">[ NEXT ]</button></div>
+<div class="nav" id="dotsNav" style="gap:8px"></div>
+<div class="nav"><button class="btn ghost" onclick="toggleMusic()" id="musicBtn">[ MUSIC: OFF ]</button></div>
+<div class="footer">Made with love for Shagufta<br>Player 1 loves Shagufta</div>
+</div>
+<script>
+let i=0;const slides=[...document.querySelectorAll('.slide')];const bar=document.getElementById('bar');const count=document.getElementById('count');const dotsNav=document.getElementById('dotsNav');
+slides.forEach((_,k)=>{const d=document.createElement('button');d.type='button';d.setAttribute('aria-label','Go to level '+k);d.className='dot'+(k===0?' on':'');d.onclick=()=>goTo(k);dotsNav.appendChild(d)});
+function update(){slides.forEach((s,k)=>s.classList.toggle('active',k===i));bar.style.width=((i+1)/slides.length*100)+'%';count.textContent='LVL '+i+' / '+(slides.length-1);[...dotsNav.children].forEach((d,k)=>d.classList.toggle('on',k===i))}
+function move(n){i=(i+n+slides.length)%slides.length;update();blip()}
+function goTo(n){i=n;update();blip()}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1)});
+let tx=0;document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)move(dx<0?1:-1)},{passive:true});
+function dodge(){const b=document.getElementById('noBtn');b.style.transform='translate('+(Math.random()*120-60)+'px,'+(Math.random()*60-30)+'px)';blip()}
+function sayYes(){goTo(slides.length-1);fireworks();fanfare()}
+function fireworks(){for(let k=0;k<80;k++){const c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background=['#ff2e4d','#ffb347','#7bff62','#62d9ff'][k%4];c.style.animationDuration=(1.5+Math.random()*2)+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),3500)}}
+setInterval(()=>{const e=document.createElement('div');e.className='floating';e.textContent=Math.random()>.5?'\u2764\uFE0F':'\u25A6';e.style.left=Math.random()*100+'vw';e.style.bottom='-20px';e.style.animationDuration=(4+Math.random()*4)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),8000)},900);
+let ctx=null;function blip(){try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=500+i*120;g.gain.value=.06;o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.12)}catch(e){}}
+let playing=false,t=null;function toggleMusic(){playing=!playing;document.getElementById('musicBtn').textContent=playing?'[ MUSIC: ON ]':'[ MUSIC: OFF ]';if(playing){t=setInterval(()=>{try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();[523,659,784,1046].forEach((f,k)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=f;g.gain.value=.04;o.connect(g);g.connect(ctx.destination);o.start(ctx.currentTime+k*.12);o.stop(ctx.currentTime+k*.12+.11)})}catch(e){}},900)}else clearInterval(t)}
+function fanfare(){try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();[523,659,784,1046,784,1046].forEach((f,k)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=f;g.gain.value=.07;o.connect(g);g.connect(ctx.destination);o.start(ctx.currentTime+k*.15);o.stop(ctx.currentTime+k*.15+.14)})}catch(e){}}
+update();
+</script>
+</body>
+</html>
